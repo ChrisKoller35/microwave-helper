@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 
 // Funktions-Beschreibungen für die Mikrowelle
 const functions = [
@@ -9,11 +9,12 @@ const functions = [
       "Automatisches Auftauen von Fleisch, Geflügel, Fisch, Gemüse und Brot. Zeit und Leistung stellt das Gerät für dich ein.",
     steps: [
       "Quick-Defrost-Taste drücken.",
-      'Mit dem Drehrad die Lebensmittelgruppe (z. B. Fleisch, Geflügel, Gemüse) wählen und mit "Auswahl/Uhr" bestätigen.',
+      "Mit dem Drehrad die Lebensmittelgruppe (z. B. Fleisch, Geflügel, Gemüse) wählen und mit \"Auswahl/Uhr\" bestätigen.",
       "Mit dem Drehrad das Gewicht einstellen.",
-      "START/+30s drücken. Beim Signalton Speisen wenden und erneut START/+30s drücken, um fortzufahren.",
+      "START/+30s drücken. Beim Signalton Speisen wenden und erneut START/+30s drücken, um fortzufahren."
     ],
-    hint: "Hilft dir, gefrorene Lebensmittel ohne Umrechnen der Auftauzeit schonend vorzubereiten.",
+    hint:
+      "Hilft dir, gefrorene Lebensmittel ohne Umrechnen der Auftauzeit schonend vorzubereiten."
   },
   {
     id: "auto-cook",
@@ -22,10 +23,11 @@ const functions = [
       "20 automatische Programme für typische Gerichte – Leistung und Zeit werden für dich gewählt.",
     steps: [
       "Auto-Cook-Taste drücken.",
-      'Mit dem Drehrad das passende Gericht wählen (z. B. Fertiggericht, Gemüse, Reis) und mit "Auswahl/Uhr" bestätigen.',
-      "START/+30s drücken und das Programm laufen lassen.",
+      "Mit dem Drehrad das passende Gericht wählen (z. B. Fertiggericht, Gemüse, Reis) und mit \"Auswahl/Uhr\" bestätigen.",
+      "START/+30s drücken und das Programm laufen lassen."
     ],
-    hint: "Ideal, wenn du kein Gefühl für Leistungsstufen und Zeiten hast oder es einfach bequem möchtest.",
+    hint:
+      "Ideal, wenn du kein Gefühl für Leistungsstufen und Zeiten hast oder es einfach bequem möchtest."
   },
   {
     id: "keep-warm",
@@ -34,11 +36,12 @@ const functions = [
       "Hält bereits gegarte Speisen bis zu 60 Minuten warm, ohne sie stark weiter zu garen.",
     steps: [
       "Keep-Warm-Taste drücken.",
-      'Am Drehrad "heiß" oder "warm" wählen.',
+      "Am Drehrad \"heiß\" oder \"warm\" wählen.",
       "START/+30s drücken – die voreingestellte Zeit von 60 Minuten läuft.",
-      "Zum Beenden Tür öffnen oder STOP/ECO drücken.",
+      "Zum Beenden Tür öffnen oder STOP/ECO drücken."
     ],
-    hint: "Nur für frisch gegarte Speisen nutzen – nicht zum Aufwärmen von kalten Resten gedacht.",
+    hint:
+      "Nur für frisch gegarte Speisen nutzen – nicht zum Aufwärmen von kalten Resten gedacht."
   },
   {
     id: "deodorization",
@@ -48,9 +51,10 @@ const functions = [
     steps: [
       "Garraum grob reinigen und Essensreste entfernen.",
       "Deodorization-Taste drücken – der Vorgang startet automatisch.",
-      "Bei Bedarf mit START/+30s die Laufzeit in 30-Sekunden-Schritten verlängern.",
+      "Bei Bedarf mit START/+30s die Laufzeit in 30-Sekunden-Schritten verlängern."
     ],
-    hint: "Standardlaufzeit sind 5 Minuten, maximal 15 Minuten – praktisch nach Fisch, Käse oder angebrannten Speisen.",
+    hint:
+      "Standardlaufzeit sind 5 Minuten, maximal 15 Minuten – praktisch nach Fisch, Käse oder angebrannten Speisen."
   },
   {
     id: "microwave",
@@ -60,23 +64,26 @@ const functions = [
     steps: [
       "Lebensmittel auf den Drehteller stellen und Tür schließen.",
       "Microwave-Taste drücken – es wird zunächst die höchste Leistung angezeigt.",
-      'Mit dem Drehrad die gewünschte Leistungsstufe wählen und mit "Auswahl/Uhr" bestätigen.',
+      "Mit dem Drehrad die gewünschte Leistungsstufe wählen und mit \"Auswahl/Uhr\" bestätigen.",
       "Mit dem Drehrad die Garzeit einstellen.",
-      "START/+30s drücken, um den Vorgang zu starten.",
+      "START/+30s drücken, um den Vorgang zu starten."
     ],
-    hint: "Für gleichmäßiges Erwärmen lieber eine mittlere Leistung wählen und etwas länger garen.",
+    hint:
+      "Für gleichmäßiges Erwärmen lieber eine mittlere Leistung wählen und etwas länger garen."
   },
   {
     id: "grill",
     label: "Grill",
-    short: "Bräunt Speisen von oben, ähnlich wie ein kleiner Backofengrill.",
+    short:
+      "Bräunt Speisen von oben, ähnlich wie ein kleiner Backofengrill.",
     steps: [
       "Lebensmittel auf den hohen Rost legen und in die Mikrowelle stellen.",
       "Grill-Taste drücken – die Grilltemperatur ist fest vorgegeben.",
       "Mit dem Drehrad die Grillzeit einstellen (bis zu 60 Minuten).",
-      "START/+30s drücken. Speisen nach Bedarf einmal wenden.",
+      "START/+30s drücken. Speisen nach Bedarf einmal wenden."
     ],
-    hint: "Perfekt für Toast, Baguettes, Würstchen oder Gratins – immer Ofenhandschuhe verwenden, da das Geschirr sehr heiß wird.",
+    hint:
+      "Perfekt für Toast, Baguettes, Würstchen oder Gratins – immer Ofenhandschuhe verwenden, da das Geschirr sehr heiß wird."
   },
   {
     id: "combi",
@@ -87,9 +94,10 @@ const functions = [
       "Lebensmittel auf den geeigneten Rost legen und Tür schließen.",
       "Combi-Taste drücken und mit dem Drehrad den gewünschten Kombi-Modus auswählen.",
       "Mit dem Drehrad die Garzeit einstellen.",
-      "START/+30s drücken. Speisen ggf. einmal wenden, wenn sie von beiden Seiten gebräunt werden sollen.",
+      "START/+30s drücken. Speisen ggf. einmal wenden, wenn sie von beiden Seiten gebräunt werden sollen."
     ],
-    hint: "Gut für Aufläufe, Pasta, Hähnchenteile oder Tiefkühlgerichte, die innen heiß und außen knusprig sein sollen.",
+    hint:
+      "Gut für Aufläufe, Pasta, Hähnchenteile oder Tiefkühlgerichte, die innen heiß und außen knusprig sein sollen."
   },
   {
     id: "grill-30",
@@ -99,9 +107,10 @@ const functions = [
     steps: [
       "Lebensmittel in den Garraum stellen.",
       "Grill+30s drücken, um den Grill sofort zu starten.",
-      "Für mehr Zeit Grill+30s mehrfach drücken – jede Betätigung fügt 30 Sekunden hinzu.",
+      "Für mehr Zeit Grill+30s mehrfach drücken – jede Betätigung fügt 30 Sekunden hinzu."
     ],
-    hint: "Ideal, um am Ende noch etwas mehr Bräunung zu geben, z. B. für Käsekrusten oder Brot.",
+    hint:
+      "Ideal, um am Ende noch etwas mehr Bräunung zu geben, z. B. für Käsekrusten oder Brot."
   },
   {
     id: "dial",
@@ -110,10 +119,11 @@ const functions = [
       "Stellt je nach Modus Gewicht, Programmnummer, Temperatur oder Zeit ein.",
     steps: [
       "Nach dem Drücken einer Funktionstaste das Drehrad drehen, um zwischen Optionen zu wählen.",
-      'Häufig mit der Taste "Auswahl/Uhr" bestätigen.',
-      "Während des Garens kann das Drehrad verwendet werden, um die Restzeit zu verlängern oder zu verkürzen.",
+      "Häufig mit der Taste \"Auswahl/Uhr\" bestätigen.",
+      "Während des Garens kann das Drehrad verwendet werden, um die Restzeit zu verlängern oder zu verkürzen."
     ],
-    hint: "Das Drehrad ist dein Hauptregler – fast jede Einstellung läuft hierüber.",
+    hint:
+      "Das Drehrad ist dein Hauptregler – fast jede Einstellung läuft hierüber."
   },
   {
     id: "select-clock",
@@ -121,11 +131,12 @@ const functions = [
     short:
       "Bestätigt Einstellungen, startet Programme und stellt die Uhrzeit ein.",
     steps: [
-      'Nach einer Einstellung mit dem Drehrad die Taste "Auswahl/Uhr" drücken, um zu bestätigen.',
-      'Zum Einstellen der Uhrzeit die Taste "Auswahl/Uhr" länger gedrückt halten, bis die Anzeige blinkt.',
-      'Mit dem Drehrad Stunden und Minuten einstellen und jeweils mit "Auswahl/Uhr" bestätigen.',
+      "Nach einer Einstellung mit dem Drehrad die Taste \"Auswahl/Uhr\" drücken, um zu bestätigen.",
+      "Zum Einstellen der Uhrzeit die Taste \"Auswahl/Uhr\" länger gedrückt halten, bis die Anzeige blinkt.",
+      "Mit dem Drehrad Stunden und Minuten einstellen und jeweils mit \"Auswahl/Uhr\" bestätigen."
     ],
-    hint: "Diese Taste ist die Kombination aus Bestätigen und Uhrzeit-Funktion – ohne sie wird eine Drehrad-Einstellung oft nicht übernommen.",
+    hint:
+      "Diese Taste ist die Kombination aus Bestätigen und Uhrzeit-Funktion – ohne sie wird eine Drehrad-Einstellung oft nicht übernommen."
   },
   {
     id: "start",
@@ -135,9 +146,10 @@ const functions = [
     steps: [
       "Nach Wahl von Funktion, Leistung und Zeit START/+30s drücken, um zu starten.",
       "Während des Betriebs START/+30s drücken, um die Zeit um 30 Sekunden zu verlängern.",
-      "Für einen schnellen Start kannst du mehrfach START/+30s drücken, um nur mit Standardleistung zu arbeiten.",
+      "Für einen schnellen Start kannst du mehrfach START/+30s drücken, um nur mit Standardleistung zu arbeiten."
     ],
-    hint: "Wenn du unsicher bist: Essen rein, grob Zeit wählen und mit START/+30s nachsteuern.",
+    hint:
+      "Wenn du unsicher bist: Essen rein, grob Zeit wählen und mit START/+30s nachsteuern."
   },
   {
     id: "stop-eco",
@@ -147,10 +159,11 @@ const functions = [
     steps: [
       "Einmal drücken, um den aktuellen Vorgang zu unterbrechen.",
       "Nochmals drücken, um alle Einstellungen zu löschen.",
-      "Bei inaktivem Gerät STOP/ECO drücken, um das Display auszuschalten (Energiesparmodus).",
+      "Bei inaktivem Gerät STOP/ECO drücken, um das Display auszuschalten (Energiesparmodus)."
     ],
-    hint: "Deine Notbremse bei falschen Einstellungen – und gleichzeitig der Knopf zum Stromsparen.",
-  },
+    hint:
+      "Deine Notbremse bei falschen Einstellungen – und gleichzeitig der Knopf zum Stromsparen."
+  }
 ];
 
 export default function MicrowaveHelperApp() {
@@ -261,26 +274,19 @@ export default function MicrowaveHelperApp() {
         </div>
 
         {/* Rechte Seite: Funktionsdetails */}
-        <div
-          ref={detailRef}
-          className="lg:w-1/2 p-6 lg:p-8 flex flex-col gap-4 bg-slate-950/40"
-        >
+        <div ref={detailRef} className="lg:w-1/2 p-6 lg:p-8 flex flex-col gap-4 bg-slate-950/40">
           <div className="inline-flex items-center gap-2 text-[0.7rem] text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-3 py-1 self-start">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
             Funktions-Erklärung
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-slate-50 mb-1">
-              {selected.label}
-            </h2>
+            <h2 className="text-xl font-semibold text-slate-50 mb-1">{selected.label}</h2>
             <p className="text-sm text-slate-300">{selected.short}</p>
           </div>
 
           <div className="mt-2">
-            <h3 className="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">
-              Schritt für Schritt
-            </h3>
+            <h3 className="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">Schritt für Schritt</h3>
             <ol className="space-y-2 text-sm text-slate-200">
               {selected.steps.map((step, idx) => (
                 <li key={idx} className="flex gap-3">
@@ -294,9 +300,7 @@ export default function MicrowaveHelperApp() {
           </div>
 
           <div className="mt-2 p-3 rounded-xl border border-slate-800 bg-slate-900/60 text-[0.8rem] text-slate-300">
-            <span className="block font-medium text-slate-100 mb-1">
-              Hinweis
-            </span>
+            <span className="block font-medium text-slate-100 mb-1">Hinweis</span>
             <p>{selected.hint}</p>
           </div>
         </div>
