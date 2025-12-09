@@ -174,7 +174,11 @@ export default function MicrowaveHelperApp() {
   const handleSelect = (id: string) => {
     setSelectedId(id);
     if (typeof window !== "undefined" && window.innerWidth < 1024) {
-      detailRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Nach dem Rendern immer ganz nach unten scrollen, damit die Funktions-Erklärung voll sichtbar ist
+      window.requestAnimationFrame(() => {
+        const maxScroll = document.documentElement.scrollHeight || document.body.scrollHeight;
+        window.scrollTo({ top: maxScroll, behavior: "smooth" });
+      });
     }
   };
 
@@ -289,8 +293,8 @@ export default function MicrowaveHelperApp() {
             <h3 className="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">Schritt für Schritt</h3>
             <ol className="space-y-2 text-sm text-slate-200">
               {selected.steps.map((step, idx) => (
-                <li key={idx} className="flex gap-3">
-                  <span className="mt-0.5 h-5 w-5 rounded-full border border-slate-600 flex items-center justify-center text-[0.7rem] text-slate-300">
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="flex-shrink-0 mt-0.5 h-6 w-6 rounded-full border border-slate-600 flex items-center justify-center text-[0.75rem] text-slate-300">
                     {idx + 1}
                   </span>
                   <span>{step}</span>
